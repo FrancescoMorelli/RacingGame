@@ -4,16 +4,18 @@ namespace RacingGame
 {
     public class SpaceShip
     {
-        public int StartPositionX { get; set; }
-        public int StartPositionY { get; set; }
+        public int PositionX { get; set; }
+        public int PositionY { get; set; }
         public Image[] ShipImage { get; set; }
         public int Position { get; set; }
         public int Speed { get; set; }
+        public int PlayerNumber { get; }
 
         public SpaceShip(int playerNumber, int startPositionX, int startPositionY)
         {
-            this.StartPositionX = startPositionX;
-            this.StartPositionY = startPositionY;
+            this.PositionX = startPositionX;
+            this.PositionY = startPositionY;
+            this.PlayerNumber = playerNumber;
             Position = 4;
             Speed = 1;
 
@@ -24,7 +26,5 @@ namespace RacingGame
                 ShipImage[i] = Image.FromFile(@"F:\JavaAssignment_SID_1425330\SpaceShipImages/SpaceShip" + playerNumber + "_" + i + ".png");
             }
         }
-
     }
-
 }
