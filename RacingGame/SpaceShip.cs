@@ -25,15 +25,6 @@ namespace RacingGame
             }
         }
 
-        public void Acceleration()
-        {
-
-        }
-
-        public void Deceleration()
-        {
-
-        }
     }
 
 }

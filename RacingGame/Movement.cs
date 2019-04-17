@@ -5,12 +5,11 @@ namespace RacingGame
 {
     public static class Movement
     {
-        public static void Move(SpaceShip spaceShip, KeyEventArgs e)
+        public static void Rotation(SpaceShip spaceShip, KeyEventArgs e)
         {
-            var player1KeyPress = e.KeyCode;
-            var player2KeyPress = e.KeyCode;
+            var playerKeyPress = e.KeyCode;
 
-            switch (player1KeyPress)
+            switch (playerKeyPress)
             {
                 case Keys.Right:
                 case Keys.D:
@@ -35,15 +34,102 @@ namespace RacingGame
                 case Keys.Up:
                 case Keys.W:
                     {
+                        if (spaceShip.Speed <= 9)
+                            spaceShip.Speed += 1;
                         break;
                     }
                 case Keys.Down:
                 case Keys.S:
                     {
+                        if (spaceShip.Speed >= 1)
+                            spaceShip.Speed -= 1;
                         break;
                     }
             }
 
+        }
+
+        public static void Move(SpaceShip spaceShip)
+        {
+            switch (spaceShip.Position)
+            {
+                case 0:
+                    spaceShip.StartPositionY -= 2 * spaceShip.Speed;
+                    break;
+
+                case 1:
+                    spaceShip.StartPositionX += 1 * spaceShip.Speed;
+                    spaceShip.StartPositionY -= 2 * spaceShip.Speed;
+                    break;
+
+                case 2:
+                    spaceShip.StartPositionX += 2 * spaceShip.Speed;
+                    spaceShip.StartPositionY -= 2 * spaceShip.Speed;
+                    break;
+
+                case 3:
+                    spaceShip.StartPositionX += 2 * spaceShip.Speed;
+                    spaceShip.StartPositionY -= 1 * spaceShip.Speed;
+                    break;
+
+                case 4:
+                    spaceShip.StartPositionX += 2 * spaceShip.Speed;
+                    break;
+
+                case 5:
+                    spaceShip.StartPositionX += 2 * spaceShip.Speed;
+                    spaceShip.StartPositionY += 1 * spaceShip.Speed;
+                    break;
+
+                case 6:
+                    spaceShip.StartPositionX += 2 * spaceShip.Speed;
+                    spaceShip.StartPositionY += 2 * spaceShip.Speed;
+                    break;
+
+                case 7:
+                    spaceShip.StartPositionX += 1 * spaceShip.Speed;
+                    spaceShip.StartPositionY += 2 * spaceShip.Speed;
+                    break;
+
+                case 8:
+                    spaceShip.StartPositionY += 2 * spaceShip.Speed;
+                    break;
+
+                case 9:
+                    spaceShip.StartPositionX -= 1 * spaceShip.Speed;
+                    spaceShip.StartPositionY += 2 * spaceShip.Speed;
+                    break;
+
+                case 10:
+                    spaceShip.StartPositionX -= 2 * spaceShip.Speed;
+                    spaceShip.StartPositionY += 2 * spaceShip.Speed;
+                    break;
+
+                case 11:
+                    spaceShip.StartPositionX -= 2 * spaceShip.Speed;
+                    spaceShip.StartPositionY += 1 * spaceShip.Speed;
+                    break;
+
+                case 12:
+                    spaceShip.StartPositionX -= 2 * spaceShip.Speed;
+                    break;
+
+                case 13:
+                    spaceShip.StartPositionX -= 2 * spaceShip.Speed;
+                    spaceShip.StartPositionY -= 2 * spaceShip.Speed;
+                    break;
+
+                case 14:
+                    spaceShip.StartPositionX -= 2 * spaceShip.Speed;
+                    spaceShip.StartPositionY -= 2 * spaceShip.Speed;
+                    break;
+
+                case 15:
+                    spaceShip.StartPositionX -= 1 * spaceShip.Speed;
+                    spaceShip.StartPositionY -= 2 * spaceShip.Speed;
+                    break;
+
+            }
         }
 
     }

@@ -46,6 +46,8 @@ namespace RacingGame
 
         private void PaintTimer_Tick(object sender, EventArgs e)
         {
+            Movement.Move(spaceShip1);
+            Movement.Move(spaceShip2);
             panel1.Refresh();
         }
 
@@ -55,14 +57,13 @@ namespace RacingGame
                 e.KeyCode == Keys.Left ||
                 e.KeyCode == Keys.Up ||
                 e.KeyCode == Keys.Down)
-                Movement.Move(spaceShip1, e);
+                Movement.Rotation(spaceShip1, e);
 
             else if (e.KeyCode == Keys.D ||
                 e.KeyCode == Keys.A ||
                 e.KeyCode == Keys.S ||
                 e.KeyCode == Keys.W)
-                Movement.Move(spaceShip2, e);
-
+                Movement.Rotation(spaceShip2, e);
 
         }
 
