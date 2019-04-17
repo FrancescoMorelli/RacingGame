@@ -8,12 +8,14 @@ namespace RacingGame
         public int StartPositionY { get; set; }
         public Image[] ShipImage { get; set; }
         public int Position { get; set; }
+        public int Speed { get; set; }
 
         public SpaceShip(int playerNumber, int startPositionX, int startPositionY)
         {
             this.StartPositionX = startPositionX;
             this.StartPositionY = startPositionY;
             Position = 4;
+            Speed = 1;
 
             ShipImage = new Image[16];
 

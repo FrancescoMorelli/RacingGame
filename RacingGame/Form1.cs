@@ -14,13 +14,20 @@ namespace RacingGame
     public partial class Form1 : Form
     {
         static Pen myPen = new Pen(Color.Black, 3);
+        Boundaries outsideBound = new Boundaries(190, 60, 1000, 600);
+        Boundaries insideBound = new Boundaries(465, 250, 430, 200);
+        SpaceShip spaceShip1 = new SpaceShip(1, 650, 480);
+        SpaceShip spaceShip2 = new SpaceShip(2, 650, 540);
 
         public Form1()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
-            Timer paintTimer = new Timer();
-            paintTimer.Interval = 50;
+            Timer PaintTimer = new Timer();
+            PaintTimer.Enabled = true;
+            PaintTimer.Interval = 50;
+            PaintTimer.Start();
+            PaintTimer.Tick += new EventHandler(PaintTimer_Tick);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -28,16 +35,34 @@ namespace RacingGame
 
             Graphics g = panel1.CreateGraphics();
 
-            var outsideBound = new Boundaries(190, 60, 1000, 600);
-            var insideBound = new Boundaries(465, 250, 430, 200);
-            var spaceShip1 = new SpaceShip(1, 650, 480);
-            var spaceShip2 = new SpaceShip(2, 650, 540);
-            
+
             g.DrawRectangle(myPen, outsideBound.StartPoint, outsideBound.EndPoint, outsideBound.Width, outsideBound.Height);
             g.DrawRectangle(myPen, insideBound.StartPoint, insideBound.EndPoint, insideBound.Width, insideBound.Height);
 
-            g.DrawImage(spaceShip1.ShipImage[spaceShip1.Position], 650, 480);
-            g.DrawImage(spaceShip2.ShipImage[spaceShip1.Position], 650, 540);
+            g.DrawImage(spaceShip1.ShipImage[spaceShip1.Position], spaceShip1.StartPositionX, spaceShip1.StartPositionY);
+            g.DrawImage(spaceShip2.ShipImage[spaceShip2.Position], spaceShip2.StartPositionX, spaceShip2.StartPositionY);
+
+        }
+
+        private void PaintTimer_Tick(object sender, EventArgs e)
+        {
+            panel1.Refresh();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Right ||
+                e.KeyCode == Keys.Left ||
+                e.KeyCode == Keys.Up ||
+                e.KeyCode == Keys.Down)
+                Movement.Move(spaceShip1, e);
+
+            else if (e.KeyCode == Keys.D ||
+                e.KeyCode == Keys.A ||
+                e.KeyCode == Keys.S ||
+                e.KeyCode == Keys.W)
+                Movement.Move(spaceShip2, e);
+
 
         }
 
