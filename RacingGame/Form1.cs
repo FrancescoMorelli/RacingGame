@@ -51,8 +51,9 @@ namespace RacingGame
         {
             Mechanics.Move(spaceShip1);
             Mechanics.Move(spaceShip2);
-            Mechanics.Collision(spaceShip1, outsideBound, insideBound);
-            Mechanics.Collision(spaceShip2, outsideBound, insideBound);
+            Mechanics.WallCollision(spaceShip1, outsideBound, insideBound);
+            Mechanics.WallCollision(spaceShip2, outsideBound, insideBound);
+            Mechanics.PlayerCollision(spaceShip1, spaceShip2);
             panel1.Refresh();
         }
 

@@ -130,20 +130,36 @@ namespace RacingGame
                     break;
             }
         }
-        static public void Collision(SpaceShip spaceShip, Rectangle outBoundaries, Rectangle inBoundaries)
+        static public void WallCollision(SpaceShip spaceShip, Rectangle outBoundaries, Rectangle inBoundaries)
         {
             Rectangle playerShip = new Rectangle(spaceShip.PositionX, spaceShip.PositionY, 40, 40);
 
             if (!outBoundaries.Contains(playerShip) || inBoundaries.IntersectsWith(playerShip))
             {
-                spaceShip.Position = 4;
-                spaceShip.Speed = 0;
-                spaceShip.PositionX = 650;
-                if (spaceShip.PlayerNumber == 1)
-                    spaceShip.PositionY = 480;
-                else
-                    spaceShip.PositionY = 540;
+                RestartPositions(spaceShip);
             }
+        }
+        static public void PlayerCollision(SpaceShip spaceShip1, SpaceShip spaceShip2)
+        {
+            Rectangle playerShip1 = new Rectangle(spaceShip1.PositionX, spaceShip1.PositionY, 40, 40);
+            Rectangle playerShip2 = new Rectangle(spaceShip2.PositionX, spaceShip2.PositionY, 40, 40);
+
+            if (playerShip1.IntersectsWith(playerShip2))
+            {
+                RestartPositions(spaceShip1);
+                RestartPositions(spaceShip2);
+            }
+        }
+
+        static public void RestartPositions(SpaceShip spaceShip)
+        {
+            spaceShip.Position = 4;
+            spaceShip.Speed = 0;
+            spaceShip.PositionX = 650;
+            if (spaceShip.PlayerNumber == 1)
+                spaceShip.PositionY = 480;
+            else
+                spaceShip.PositionY = 540;
         }
     }
 }
