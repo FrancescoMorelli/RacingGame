@@ -1,4 +1,6 @@
 ﻿using System.Drawing;
+using System.Reflection;
+using System.IO;
 
 namespace RacingGame
 {
@@ -21,9 +23,14 @@ namespace RacingGame
 
             ShipImage = new Image[16];
 
+            string exeDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            DirectoryInfo binDir = Directory.GetParent(exeDir);
+            string shipsDir = Path.Combine(binDir + @"\SpaceShipImages\SpaceShip");
+
+
             for (int i = 0; i < ShipImage.Length; i++)
             {
-                ShipImage[i] = Image.FromFile(@"F:\JavaAssignment_SID_1425330\SpaceShipImages/SpaceShip" + playerNumber + "_" + i + ".png");
+                ShipImage[i] = Image.FromFile(shipsDir + playerNumber + "_" + i + ".png");
             }
         }
     }

@@ -81,5 +81,39 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\SpaceShipImages\SpaceShip1_0.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_1.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_10.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_11.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_12.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_13.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_14.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_15.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_2.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_3.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_4.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_5.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_6.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_7.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_8.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip1_9.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_0.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_1.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_10.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_11.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_12.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_13.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_14.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_15.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_2.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_3.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_4.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_5.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_6.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_7.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_8.png" />
+    <Content Include="bin\SpaceShipImages\SpaceShip2_9.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
