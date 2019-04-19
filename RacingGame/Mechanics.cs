@@ -132,7 +132,7 @@ namespace RacingGame
         }
         static public void WallCollision(SpaceShip spaceShip, Rectangle outBoundaries, Rectangle inBoundaries)
         {
-            Rectangle playerShip = new Rectangle(spaceShip.PositionX, spaceShip.PositionY, 40, 40);
+            Rectangle playerShip = spaceShip.DrawSpaceShipRectangle();
 
             if (!outBoundaries.Contains(playerShip) || inBoundaries.IntersectsWith(playerShip))
             {
@@ -141,8 +141,8 @@ namespace RacingGame
         }
         static public void PlayerCollision(SpaceShip spaceShip1, SpaceShip spaceShip2)
         {
-            Rectangle playerShip1 = new Rectangle(spaceShip1.PositionX, spaceShip1.PositionY, 40, 40);
-            Rectangle playerShip2 = new Rectangle(spaceShip2.PositionX, spaceShip2.PositionY, 40, 40);
+            Rectangle playerShip1 = spaceShip1.DrawSpaceShipRectangle();
+            Rectangle playerShip2 = spaceShip2.DrawSpaceShipRectangle();
 
             if (playerShip1.IntersectsWith(playerShip2))
             {

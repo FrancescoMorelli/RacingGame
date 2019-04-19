@@ -33,5 +33,13 @@ namespace RacingGame
                 ShipImage[i] = Image.FromFile(shipsDir + playerNumber + "_" + i + ".png");
             }
         }
+
+        public Rectangle DrawSpaceShipRectangle()
+        {
+
+            Rectangle shipRectangle = new Rectangle(this.PositionX, this.PositionY, 35, 35);
+
+            return shipRectangle;
+        }
     }
 }

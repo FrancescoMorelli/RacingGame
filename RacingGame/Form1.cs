@@ -20,10 +20,8 @@ namespace RacingGame
         SpaceShip spaceShip1 = new SpaceShip(1, 650, 480);
         SpaceShip spaceShip2 = new SpaceShip(2, 650, 540);
 
-
         public Form1()
         {
-
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             Timer PaintTimer = new Timer();
@@ -31,8 +29,6 @@ namespace RacingGame
             PaintTimer.Interval = 50;
             PaintTimer.Start();
             PaintTimer.Tick += new EventHandler(PaintTimer_Tick);
-
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -70,7 +66,6 @@ namespace RacingGame
                 e.KeyCode == Keys.S ||
                 e.KeyCode == Keys.W)
                 Mechanics.Rotation(spaceShip2, e);
-
         }
 
         //Method to remove the application flickering when redrawing the panel.
