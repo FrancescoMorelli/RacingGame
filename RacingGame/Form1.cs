@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -14,8 +15,10 @@ namespace RacingGame
 {
     public partial class Form1 : Form
     {
-        static Pen myPen = new Pen(Color.Black, 3);
-        static Brush myBrush = new SolidBrush(Color.Black);
+        //Really ugle way to load an Image, TO BE CHANGED
+        Image backGround = Image.FromFile(Convert.ToString(Directory.GetParent(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location))) + @"\BackGroundImage\galaxy.jpg");
+        static Pen myPen = new Pen(Color.White, 3);
+        static Brush myBrush = new SolidBrush(Color.White);
         static Font myFont = new Font("Times New Roman", 16);
 
         Rectangle outsideBound = new Rectangle(190, 60, 1000, 600);
@@ -30,6 +33,7 @@ namespace RacingGame
 
         public Form1()
         {
+            
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             Timer paintTimer = new Timer();
@@ -42,6 +46,7 @@ namespace RacingGame
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = panel1.CreateGraphics();
+            panel1.BackgroundImage = backGround;
 
             //Boundaries
             g.DrawRectangle(myPen, outsideBound);
@@ -53,8 +58,8 @@ namespace RacingGame
             g.DrawImage(spaceShip1.ShipImage[spaceShip1.Position], spaceShip1.PositionX, spaceShip1.PositionY);
             g.DrawImage(spaceShip2.ShipImage[spaceShip2.Position], spaceShip2.PositionX, spaceShip2.PositionY);
 
-            g.DrawString($"Lap Count P1: {spaceShip1.LapCount}", myFont, myBrush, 20, 130);
-            g.DrawString($"Lap Count P2: {spaceShip2.LapCount}", myFont, myBrush, 1200, 130);
+            g.DrawString($"Player1\nLap Count: {spaceShip1.LapCount}\nSpeed: {spaceShip1.Speed}", myFont, myBrush, 20, 130);
+            g.DrawString($"Player2\nLap Count: {spaceShip2.LapCount}\nSpeed: {spaceShip2.Speed}", myFont, myBrush, 1200, 130);
         }
 
         private void PaintTimer_Tick(object sender, EventArgs e)
