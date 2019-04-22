@@ -1,8 +1,9 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace RacingGame
 {
-    public static partial class Mechanics
+    public static class Mechanics
     {
         public static void Rotation(SpaceShip spaceShip, KeyEventArgs e)
         {
@@ -127,6 +128,24 @@ namespace RacingGame
                     spaceShip.PositionY -= 2 * spaceShip.Speed;
                     break;
             }
+        }
+
+        public static bool LapCount(SpaceShip spaceShip, Rectangle startLine, Rectangle middleCheckPoint, bool checkPointFlag) 
+        {
+            Rectangle playerShip = spaceShip.SpaceShipRectangle();
+
+            if (playerShip.IntersectsWith(middleCheckPoint))
+            {
+               return checkPointFlag = true;
+            }
+
+            if (playerShip.IntersectsWith(startLine) && checkPointFlag == true)
+            {
+                spaceShip.LapCount += 1;
+                return checkPointFlag = false;
+            }
+
+            return checkPointFlag;
         }
     }
 }

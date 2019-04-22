@@ -6,17 +6,18 @@ namespace RacingGame
     {
         static public void Walls(SpaceShip spaceShip, Rectangle outBoundaries, Rectangle inBoundaries)
         {
-            Rectangle playerShip = spaceShip.DrawSpaceShipRectangle();
+            Rectangle playerShip = spaceShip.SpaceShipRectangle();
 
             if (!outBoundaries.Contains(playerShip) || inBoundaries.IntersectsWith(playerShip))
             {
                 RestartPositions(spaceShip);
             }
         }
+
         static public void Players(SpaceShip spaceShip1, SpaceShip spaceShip2)
         {
-            Rectangle playerShip1 = spaceShip1.DrawSpaceShipRectangle();
-            Rectangle playerShip2 = spaceShip2.DrawSpaceShipRectangle();
+            Rectangle playerShip1 = spaceShip1.SpaceShipRectangle();
+            Rectangle playerShip2 = spaceShip2.SpaceShipRectangle();
 
             if (playerShip1.IntersectsWith(playerShip2))
             {
@@ -35,6 +36,5 @@ namespace RacingGame
             else
                 spaceShip.PositionY = 540;
         }
-
     }
 }
