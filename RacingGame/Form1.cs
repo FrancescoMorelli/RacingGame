@@ -29,7 +29,6 @@ namespace RacingGame
         SpaceShip spaceShip1 = new SpaceShip(1, 650, 480);
         SpaceShip spaceShip2 = new SpaceShip(2, 650, 540);
 
-        static bool checkPointP1, checkPointP2;
 
         public Form1()
         {
@@ -66,8 +65,8 @@ namespace RacingGame
         {
             Mechanics.Move(spaceShip1);
             Mechanics.Move(spaceShip2);
-            checkPointP1 = Mechanics.LapCount(spaceShip1, startLine, middleCheckPoint, checkPointP1);
-            checkPointP2 = Mechanics.LapCount(spaceShip2, startLine, middleCheckPoint, checkPointP2);
+            Mechanics.LapCount(spaceShip1, startLine, middleCheckPoint);
+            Mechanics.LapCount(spaceShip2, startLine, middleCheckPoint);
             Collisions.Walls(spaceShip1, outsideBound, insideBound);
             Collisions.Walls(spaceShip2, outsideBound, insideBound);
             Collisions.Players(spaceShip1, spaceShip2);

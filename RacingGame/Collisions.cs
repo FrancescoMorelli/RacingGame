@@ -28,6 +28,7 @@ namespace RacingGame
 
         static public void RestartPositions(SpaceShip spaceShip)
         {
+            spaceShip.CheckPointFlag = false;
             spaceShip.Position = 4;
             spaceShip.Speed = 0;
             spaceShip.PositionX = 650;

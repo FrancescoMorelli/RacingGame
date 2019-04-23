@@ -13,6 +13,8 @@ namespace RacingGame
         public int Speed { get; set; }
         public int PlayerNumber { get; }
         public int LapCount { get; set; }
+        public bool CheckPointFlag { get; set; }
+
 
         public SpaceShip(int playerNumber, int startPositionX, int startPositionY)
         {

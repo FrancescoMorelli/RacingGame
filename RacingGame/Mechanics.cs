@@ -130,22 +130,21 @@ namespace RacingGame
             }
         }
 
-        public static bool LapCount(SpaceShip spaceShip, Rectangle startLine, Rectangle middleCheckPoint, bool checkPointFlag) 
+        public static void LapCount(SpaceShip spaceShip, Rectangle startLine, Rectangle middleCheckPoint) 
         {
             Rectangle playerShip = spaceShip.SpaceShipRectangle();
 
             if (playerShip.IntersectsWith(middleCheckPoint))
             {
-               return checkPointFlag = true;
+               spaceShip.CheckPointFlag = true;
             }
 
-            if (playerShip.IntersectsWith(startLine) && checkPointFlag == true)
+            if (playerShip.IntersectsWith(startLine) && spaceShip.CheckPointFlag == true)
             {
                 spaceShip.LapCount += 1;
-                return checkPointFlag = false;
+                spaceShip.CheckPointFlag = false;
             }
 
-            return checkPointFlag;
         }
     }
 }
