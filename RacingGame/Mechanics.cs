@@ -130,13 +130,13 @@ namespace RacingGame
             }
         }
 
-        public static void LapCount(SpaceShip spaceShip, Rectangle startLine, Rectangle middleCheckPoint) 
+        public static void LapCount(SpaceShip spaceShip, Rectangle startLine, Rectangle middleCheckPoint)
         {
             Rectangle playerShip = spaceShip.SpaceShipRectangle();
 
             if (playerShip.IntersectsWith(middleCheckPoint))
             {
-               spaceShip.CheckPointFlag = true;
+                spaceShip.CheckPointFlag = true;
             }
 
             if (playerShip.IntersectsWith(startLine) && spaceShip.CheckPointFlag == true)
@@ -144,7 +144,30 @@ namespace RacingGame
                 spaceShip.LapCount += 1;
                 spaceShip.CheckPointFlag = false;
             }
+        }
 
+        public static void Winner(SpaceShip spaceShip1, SpaceShip spaceShip2)
+        {
+            if (spaceShip1.LapCount == 3)
+            {
+                spaceShip1.LapCount = 0;
+                spaceShip2.LapCount = 0;
+                Collisions.RestartPositions(spaceShip1);
+                Collisions.RestartPositions(spaceShip2);
+
+                MessageBox.Show($"Player {spaceShip1.PlayerNumber} is the winner!", "WINNER WINNER WINNER");
+
+            }
+
+            else if (spaceShip2.LapCount == 3)
+            {
+                spaceShip1.LapCount = 0;
+                spaceShip2.LapCount = 0;
+                Collisions.RestartPositions(spaceShip1);
+                Collisions.RestartPositions(spaceShip2);
+                MessageBox.Show($"Player {spaceShip2.PlayerNumber} is the winner!", "WINNER WINNER WINNER");
+
+            }
         }
     }
 }

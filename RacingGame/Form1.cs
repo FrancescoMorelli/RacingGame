@@ -65,11 +65,18 @@ namespace RacingGame
         {
             Mechanics.Move(spaceShip1);
             Mechanics.Move(spaceShip2);
+
             Mechanics.LapCount(spaceShip1, startLine, middleCheckPoint);
             Mechanics.LapCount(spaceShip2, startLine, middleCheckPoint);
+
+            if(spaceShip1.LapCount == 3 || spaceShip2.LapCount == 3)
+                Mechanics.Winner(spaceShip1, spaceShip2);
+
             Collisions.Walls(spaceShip1, outsideBound, insideBound);
             Collisions.Walls(spaceShip2, outsideBound, insideBound);
+
             Collisions.Players(spaceShip1, spaceShip2);
+
             panel1.Refresh();
         }
 

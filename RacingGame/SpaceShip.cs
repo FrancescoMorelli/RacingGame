@@ -8,13 +8,12 @@ namespace RacingGame
     {
         public int PositionX { get; set; }
         public int PositionY { get; set; }
-        public Image[] ShipImage { get; set; }
+        public Image[] ShipImage { get; }
         public int Position { get; set; }
         public int Speed { get; set; }
         public int PlayerNumber { get; }
         public int LapCount { get; set; }
         public bool CheckPointFlag { get; set; }
-
 
         public SpaceShip(int playerNumber, int startPositionX, int startPositionY)
         {
